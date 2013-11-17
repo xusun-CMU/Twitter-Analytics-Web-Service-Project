@@ -1,13 +1,13 @@
 package edu.cmu.passion.resources;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.websocket.server.PathParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
 /**
  * The REST Server Resource Class for handling the response of "Who retweeted a tweet"
@@ -15,23 +15,21 @@ import javax.ws.rs.Produces;
  *
  */
 
-@Path("q4/{userid}")	//TODO: Add validation for user input. We Could do it here through the regular expression
-@Produces("text/plain")
+@Path("q4")
+@Produces(MediaType.TEXT_PLAIN)
 public class WhoRetweetedATweet {
 	
-	
 	@GET
-	@Produces("application/json")
-	public List<String> doGetWhoRetweetedATweet(@PathParam("userid") String userId) {
+	public String doGetWhoRetweetedATweet(@QueryParam("userid") String userId) {
 		
 		//We need to retrieve tweet from data base first.
-		String singleUserId;
+		String singleUserId = userId;
 		
-		List<String> userCluster = new ArrayList<>();
+		List<String> userCluster = new ArrayList<String>();
 		
 		//TODO: Get the list of "reTweetedUsers"
 
-		return userCluster;
+		return "This is the forth query!";
 		
 	}
 	

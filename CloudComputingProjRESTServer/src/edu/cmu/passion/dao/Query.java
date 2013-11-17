@@ -5,5 +5,8 @@ package edu.cmu.passion.dao;
  *
  */
 public class Query {
-
+	
+	
+	
+	
 }

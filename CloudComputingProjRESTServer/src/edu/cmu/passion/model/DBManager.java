@@ -6,5 +6,5 @@ package edu.cmu.passion.model;
  * @author Sun
  */
 public class DBManager {
-
+	
 }

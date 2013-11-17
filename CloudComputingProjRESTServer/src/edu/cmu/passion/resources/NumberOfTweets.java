@@ -1,9 +1,11 @@
 package edu.cmu.passion.resources;
 
-import javax.websocket.server.PathParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+
 
 /**
  * The REST Server Resource Class for handling the response of "Number of tweets"
@@ -11,13 +13,12 @@ import javax.ws.rs.Produces;
  *
  */
 
-@Path("q3/{userid_min, userid_max}")	//TODO: Add validation for user input. We Could do it here through the regular expression
-@Produces("text/plain")
+@Path("q3")	
+@Produces(MediaType.TEXT_PLAIN)
 public class NumberOfTweets {
 
 	@GET
-	@Produces("application/json")
-	public int doGetNumberOfTweets(@PathParam("userid_min") String userIdMin, @PathParam("userid_max") String userIdMax) {
+	public String doGetNumberOfTweets(@QueryParam("userid_min") String userIdMin, @QueryParam("userid_max") String userIdMax) {
 		
 		//We need to retrieve tweet from data base first.
 		
@@ -25,7 +26,7 @@ public class NumberOfTweets {
 		
 		//TODO: Get the number of tweets from the db
 
-		return numberOfTweets;
+		return "this is the third query!";
 		
 	}
 	
